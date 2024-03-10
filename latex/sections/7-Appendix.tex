@@ -2,7 +2,9 @@
 \appendix
 \section{Overview XAI Approaches}\label{sec:7}
 
-\subsection{Inherently interpretable machine learning models}
+Here brief lookup tables for the most popular XAI approaches are provided, containing key interpretability insights.
+
+\subsection{Inherently Interpretable Machine Learning Models}
 
 \subsubsection{Linear Regression}
 \begin{table}[H]
@@ -10,7 +12,7 @@
   \begin{tabular}{|p{0.17\linewidth}|p{0.77\linewidth}|}
     \hline
     Form of \newline explanation & 
-    Internal model parameters \\
+    Internal model parameters. \\
     
     \hline
     Interpretation & 
@@ -41,13 +43,14 @@
   % \label{tab:XAILinReg}
 \end{table}
 
+
 \subsubsection{Decision Tree}
 \begin{table}[H]
   \centering
   \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
     \hline
     Form of \newline explanation & 
-    Internal model parameters \\
+    Internal model parameters. \\
     
     \hline
     Interpretation & 
@@ -85,7 +88,7 @@
   \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
     \hline
     Form of \newline explanation & 
-    Internal model parameters \\
+    Internal model parameters. \\
     
     \hline
     Interpretation & 
@@ -114,16 +117,18 @@
   \caption[Overview XAI - Linear Tree]{Overview XAI - Linear Tree.\cite{linear_tree}}
 \end{table}
 
+
 \subsubsection{ProtoPNet - \textit{This} Looks Like \textit{That}}
 \begin{table}[H]
   \centering
   \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
     \hline
-    Form of \newline explanation & Points from dataset distribution.
-    \\
+    Form of \newline explanation & 
+    Points from dataset distribution.  \\
     
     \hline
-    Interpretation & Learned prototypical parts are compared to points from training dataset.
+    Interpretation & 
+    Learned prototypical parts are compared to points from the training dataset.
      \\
  
     \hline
@@ -149,7 +154,9 @@
   % \label{tab:XAIProtoPNet}
 \end{table}
 
-\subsection{Post-hoc methods - Model-Agnostic - global}
+
+
+\subsection{Post-hoc Methods - Model-Agnostic - Global}
 
 \subsubsection{PFI - Permutation Feature Importance}
 \begin{table}[H]
@@ -157,7 +164,7 @@
   \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
     \hline
     Form of \newline explanation & 
-    Feature statistics \\
+    Feature statistics. \\
     
     \hline
     Interpretation & 
@@ -187,13 +194,14 @@
   % \label{tab:XAIPFI}
 \end{table}
 
+
 \subsubsection{PDP - Partial Dependence Plot}
 \begin{table}[H]
   \centering
   \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
     \hline
     Form of \newline explanation & 
-    Features statistics \\
+    Features statistics. \\
     
     \hline
     Interpretation & 
@@ -222,13 +230,14 @@
   \label{tab:XAIPDP}
 \end{table}
 
-\subsubsection{Global surrogate}
+
+\subsubsection{Global Surrogate}
 \begin{table}[H]
   \centering
   \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
     \hline
     Form of \newline explanation & 
-    Approximation with an inherently interpretable model \\
+    Approximation with an inherently interpretable model. \\
     
     \hline
     Interpretation & 
@@ -258,7 +267,7 @@
   \label{tab:XAIGlobSur}
 \end{table}
 
-\subsection{Post-hoc methods - Model-Agnostic - local}
+\subsection{Post-hoc Methods - Model-Agnostic - Local}
 
 \subsubsection{Shapley Values}
 \begin{table}[H]
@@ -289,13 +298,14 @@
     
     \hline
     Properties & 
-    post-hoc, model-agnostic, local  \\
+    post-hoc, model-agnostic, local/global  \\
     
     \hline
   \end{tabular}
   \caption{Overview XAI - Shapley Values.}
   % \label{tab:XAIShapVal}
 \end{table}
+
 
 \subsubsection{ICE - Individual Conditional Expectation}
 \begin{table}[H]
@@ -338,7 +348,7 @@
   \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
     \hline
     Form of \newline explanation & 
-    Feature visualization. \\
+    Approximation with an inherently interpretable model. \\
     
     \hline
     Interpretation & 
@@ -369,23 +379,15 @@
   \label{tab:XAILIME}
 \end{table}
 
-
-
-
-
-
-
-\subsection{Post-hoc methods - Model-Specific}
-
+\subsection{Post-hoc Methods - Model-Specific}
 
 \subsubsection{Image-Specific Class Saliency (Vanilla gradient)}
-
 \begin{table}[H]
   \centering
   \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
     \hline
     Form of \newline explanation & 
-    Feature visualization \\
+    Feature visualization. \\
     
     \hline
     Interpretation & 
@@ -409,5 +411,5 @@
     
     \hline
   \end{tabular}
-  \caption[Overview XAI - Image-Specific Class Saliency (Vanilla gradient)]{Overview XAI - Image-Specific Class Saliency (Vanilla gradient).}
+  \caption[Overview XAI - Image-Specific Class Saliency (Vanilla Gradient method)]{Overview XAI - Image-Specific Class Saliency (Vanilla Gradient method).}
 \end{table}

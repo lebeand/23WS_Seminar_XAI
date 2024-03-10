@@ -2,37 +2,36 @@
 \newpage
 \section{Definitions and Overview}\label{sec:2}
 
-XAI, short for Explainable Artificial Intelligence, is a term often used in the field of machine learning. It's all about going beyond a mysterious "black box" approach and aiming to understand how a trained model makes decisions.\\
-In this chapter, we'll explore the uses of ML Interpretability. Next, we'll examine the different forms in which explanations can be presented. Finally, we'll categorize the types of machine learning models and algorithms.
+XAI is a term often used in the field of ML. It's all about going beyond a mysterious "black box" approach and aiming to understand how a ML model makes decisions.\\
+In this chapter, we'll explore the uses of ML Interpretability. Next, we'll examine the different forms in which explanations can be presented. Finally, we'll categorize the types of ML models and algorithms.
 
 \subsection{Goals of ML Interpretability}\label{sec:goals}
 
 \subsubsection*{Justify the model} 
 The main aim of XAI is to make models easy to understand so that people can trust them more and feel confident in their predictions. This means making the model transparent so that we can understand how it makes its predictions.
 
-According to \cite{InterpretableToWhom}, it's also important to consider who needs the explanation. Different people play different roles in how machine learning systems work.
-In a machine learning ecosystem they define six roles, illustrated in Figure \ref{fig:InterpretableToWhom}, where individuals may fulfill more than one role simultaneously.
+According to \cite{InterpretableToWhom}, it's also important to consider who needs the explanation. Different people play different roles in how ML systems work.
+In a ML ecosystem they define six roles, illustrated in Figure \ref{fig:InterpretableToWhom}, where individuals may fulfill more than one role simultaneously.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{pics/ill_ml_justify.png}
-    \caption{Illustration of a machine learning ecosystem.\cite{InterpretableToWhom}}
+    \caption[Illustration of a ML ecosystem.]{Illustration of a ML ecosystem.\cite{InterpretableToWhom}}
     \label{fig:InterpretableToWhom}
 \end{figure}
 
-First, there are the creators who build and develop the machine learning model. Then, there are the operators who manage and run the model once it's implemented. Next, there are the executors who use the model to make decisions. After them, there are those who are impacted by the decisions made by the executors. This includes people whose personal data was used to train the model, as well as those who audit or investigate the machine learning system.
+First, there are the creators who build and develop the MLisions. After them, there are those who are impacted by the decisions made by the executors. This includes people whose personal data was used to train the model, as well as those who audit or investigate the ML system.
 
-Understanding these different roles helps ensure that explanations are useful and relevant to everyone involved.
+Understanding these different roles helps to ensure that explanations are useful and relevant to everyone involved.
 
 \subsubsection*{Get insights into data}
-Another aim in XAI is to gain insights from the data. Instead of just focusing on the model, the goal is to understand how the real-world process operates and how the features relate to the target. 
+Another aim of XAI is to gain insights from the data. Instead of just focusing on the model, the goal is to understand how the real-world process operates and how the features relate to the target. 
 However, achieving this goal heavily relies on the model's performance. For XAI to be effective in uncovering insights, the model must perform well.\cite{freiesleben2022scientific}
 
 \subsubsection*{Debug and improve model}
 One of the aims of XAI is to find and fix mistakes or unfairness in models and data. This involves spotting things like missing values or repeated information in the dataset, shifts in the data over time or finding redundant features that don't add any new useful information.\cite{hassija2024interpreting,InterpretableToWhom}
 
-\subsection{Different forms of explanations}
-
+\subsection{Different Forms of Explanations}
 XAI approaches can provide various types of explanations.
 
 \subsubsection*{Features statistics + visualization}
@@ -42,13 +41,12 @@ One form of explanation involves offering feature statistics, which can often be
 Another form of explanation involves gaining insight through internal model parameters. For instance, this can be observed in the weights of Linear Regression models (T. \ref{tab:XAILinReg}), which serve as both feature statistics and components of the model's internal workings. Similarly, the internal structure of Decision Trees (T. \ref{tab:Tree}) offers valuable insights into how the model makes decisions.
 
 \subsubsection*{Points from dataset distribution}
-This form of explanation includes all approaches that uses data points from the existing data distribution or newly generated data points to improve model interpretability. For example, the model utilizes available data points from the dataset to make predictions, like with the ProtoPNet architecture discussed in subsection \ref{sec:ProtoPNet}.
+This form of explanation includes all approaches that use data points from the existing data distribution or newly generated data points to improve model interpretability. For example, the model utilizes available data points from the dataset to make predictions, like with the ProtoPNet architecture discussed in subsection \ref{sec:ProtoPNet}.
 
 \subsubsection*{Approximation of model with an inherently interpretable model}
-Another form of explanation involves approximating a complex model with an interpretable one, either a globally using a global surrogate (T. \ref{tab:XAIGlobSur}), or locally as seen in methods like LIME (T. \ref{tab:XAILIME}). This interpretable model can then be analyzed by examining its internal parameters or interpreted by obtaining feature statistics.
-% Another form of explanation is to approximate a complex model with an interpretable model, either globally with a global surrogate or locally for e.g. LIME. The interpretable model itself is interpreted by either looking at internal model parameters or feature statistics.
+Another form of explanation involves approximating a complex model with an interpretable one, either globally using a global surrogate (T. \ref{tab:XAIGlobSur}), or locally as seen in methods like LIME (T. \ref{tab:XAILIME}). This interpretable model can then be analyzed by examining its internal parameters or interpreted by obtaining feature statistics.
 
-\subsection{Taxonomy of Explainable AI Approaches}
+\subsection{Taxonomy of XAI Approaches}
 
 The taxonomy of XAI approaches is illustrated in the following figure:
 \begin{figure}[H]
