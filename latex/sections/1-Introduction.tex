@@ -1,0 +1,22 @@
+
+\section{Introduction}
+
+Machine Learning (ML) models excel in various fields, often outperforming human capabilities. However, ML application requires careful consideration, especially in domains where critical decisions are made. Transparency and trustworthiness of models are crucial, for instance in healthcare, where their outcomes directly affect individuals' well-being or even their lives \cite{MARKUS2021103655}. \\
+The field of Explainable Artificial Intelligence (XAI) has emerged as a response to this need, dedicated to exploring ML interpretability to provide transparency and trustworthiness in models. Highlighting the significance of XAI, consider the following examples.
+
+Assume a scenario where you are faced with interpreting mammograms to identify potential lesions and determine their malignancy, thereby determining if a biopsy is necessary for the patient. Let's assume you have developed a Deep Learning model specifically trained for this task, achieving a high performance score on the test dataset.
+The question arises: Would the radiologist include it in his diagnostic practices? It seems unlikely if the model only provides a yes or no prediction or gives a numerical score without an accompanying explanation describing the reasoning behind the model's decision-making process.
+Alternatively, using an interpretable model, such as the case-based interpretable deep learning model \textit{IAIA-BL} from \cite{barnett2021case}, could be more advantageous. This model offers a structured explanation framework, that identifies relevant regions, links these regions to specific medical attributes and relies only on the evidence to make predictions \cite{barnett2021case}.
+
+Another scenario where XAI could prove valuable is in credit evaluation. 
+In recent times, the loan acceptance rates of banks have descended, decreasing to 61\%–70\%, and diving further to 50\% post-pandemic due to widespread financial setbacks and a higher rate of defaulters.
+However, what worsens the situation is the lack of transparent explanations provided to the customers, leaving them frustrated and confused.
+Providing clear explanations for loan rejections not only offers transparency to customers but also empowers them to understand and potentially modify their financial behavior. This transparency can improve customer satisfaction and trust in the banking system.
+\cite{NALLAKARUPPAN2024111307}
+
+Alone from these two examples, the significance of XAI becomes clear. This work aims to offer a brief understanding of XAI and explore various approaches within the field.
+In Section \ref{sec:2}, an overview of XAI is provided, delving into its objectives, the different forms of explanations, and the taxonomy of XAI approaches.
+Following that, in Sections \ref{sec:3}-\ref{sec:5}, different XAI approaches are presented, highlighting their interpretative capabilities and inherent limitations.
+Lastly, in Section \ref{sec:6}, conclusions are drawn and four key insights derived from the study are presented.
+Much of the work relies on Molnar's book \textit{Interpretable Machine Learning} \cite{molnar2022}, serving as a great entry point for those who are interested in interpretable ML.
+Additionally, in appendix \ref{sec:7}, brief lookup tables for the most popular XAI approaches are provided, containing key interpretability insights.

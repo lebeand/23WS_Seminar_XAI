@@ -1,0 +1,144 @@
+
+%%% Eingebundene Pakete: werden hier nicht alle gebraucht, schaden aber auch nicht.
+
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{caption}
+
+\usepackage{tabularx}
+
+\usepackage{mdframed}
+
+% \usepackage{todonotes}
+
+
+\usepackage{glossaries} %fleqn %bibotoc
+\usepackage{mathptmx}
+% \usepackage[scaled=0.9]{helvet}
+\usepackage[scaled]{helvet}
+\usepackage{courier}
+
+%\usepackage{lmodern}
+%\usepackage{mathptmx}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+
+\usepackage{arydshln}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{extarrows}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,amscd,amsbsy,amsxtra,wasysym}
+\usepackage{epsfig,color}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+\usepackage{psfrag}
+\usepackage{enumerate}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{cancel}
+\usepackage{stmaryrd}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{tikz}
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=tikz/]
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} %todo
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{pdfpages}
+
+\usepackage[Algorithmus]{algorithm}
+\usepackage{algpseudocode}
+
+%\usepackage{etex}
+\usetikzlibrary{external} %pdflatex -shell-escape <filename> beim Kompilieren
+\tikzexternalize[prefix=tikz/]
+
+
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage[style=numeric-comp,giveninits=true,backend=biber]{biblatex}
+%\usepackage[style=numeric-comp,giveninits=true,backend=bibtex8]{biblatex}
+\addbibresource{ref.bib}
+
+
+%%% Neudefinition von Kommandos, um sich Tipp-Arbeit zu ersparen
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Ra}{\Longrightarrow}
+\newcommand{\La}{\Longleftarrow}
+\newcommand{\LRa}{\Leftrightarrow}
+\newcommand{\lr}[1]{\left(#1\right)}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\spn}{span}
+
+
+%%% Veraenderung des Seitenlayouts
+%\setlength{\oddsidemargin}{-1cm}
+%\setlength{\evensidemargin}{0cm}
+%\setlength{\textwidth}{18cm}
+%\setlength{\textheight}{26cm}
+%\setlength{\topmargin}{-2cm}
+
+\setlength{\parindent}{0pt}   % kein linker Einzug der ersten Absatzzeile
+%\setlength{\parskip}{1.4ex plus 0.35ex minus 0.3ex} % Absatzabstand, leicht variabel
+\pagestyle{plain}
+
+%\usepackage[paper=a4paper,left=20mm,right=20mm,top=20mm,bottom=20mm]{geometry}
+\usepackage[paper=a4paper,left=35mm,right=25mm,top=30mm,bottom=30mm]{geometry}
+%\usepackage[onehalfspacing]{setspace}
+
+%%%% von Uni Vorlage
+\usepackage{setspace}         % Paket für div. Abstände, z.B. ZA
+%\onehalfspacing              % nur dann, wenn gefordert; ist sehr groß!!
+\setlength{\parindent}{0pt}   % kein linker Einzug der ersten Absatzzeile
+\setlength{\parskip}{1.4ex plus 0.35ex minus 0.3ex} % Absatzabstand, leicht variabel
+
+%\sloppy
+\allowdisplaybreaks
+
+\theoremstyle{definition}
+\newtheorem{bsp}{Beispiel}[section]
+\newtheorem{defi}[bsp]{Definition}
+\newtheorem{bem}[bsp]{Bemerkung}
+\newtheorem{folg}[bsp]{Folgerung}
+\newtheorem{an}[bsp]{Annahme}
+
+\theoremstyle{plain}
+\newtheorem{satz}[bsp]{Satz}
+\newtheorem{theorem}[bsp]{Theorem}
+\newtheorem{lemma}[bsp]{Lemma}
+\newtheorem{kor}[bsp]{Korollar}
+\newtheorem{prob}[bsp]{Problem}
+
+\numberwithin{equation}{section}
+\numberwithin{algorithm}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+
+%\addto\captionsngerman{\renewcommand{\refname}{Literatur}}
+%\addto\captionsngerman{\renewcommand*\contentsname{Inhalt}}
+%\addto\captionsngerman{\renewcommand{\listfigurename}{\large Abbildungsverzeichnis}}
+%\addto\captionsngerman{\renewcommand{\listtablename}{\large Tabellenverzeichnis}}
+%\renewcommand{\listalgorithmname}{\large Algorithmenverzeichnis}
+
+%\DefineBibliographyStrings{german}{andothers={et al.}}
+%\urlstyle{same}
+
+
+%\usepackage{ucs}
+%\usepackage{multibib}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{decorations}
+
+

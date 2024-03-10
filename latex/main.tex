@@ -1,0 +1,48 @@
+% ===============================================
+% Sogenannte Praeambel: Seiteneinstellungen etc.
+% ===============================================
+
+\documentclass[english,12pt,oneside, a4paper]{article} %, numbers=noenddot
+\input{init/Init}
+
+
+% ==============================================
+% Start des eigentlichen Dokumentes
+% ==============================================
+\begin{document}
+
+
+\pagenumbering{Roman}
+\input{init/CoverSheet}
+
+\newpage
+\tableofcontents
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+\addcontentsline{toc}{section}{\listtablename}
+\listoftables
+
+\newpage
+\pagenumbering{arabic}
+\input{sections/1-Introduction}
+
+\input{sections/2-DefOverview}
+
+\input{sections/3-InhIntrMLModels}
+
+\input{sections/4-Model-Agnostic_post-hoc}
+
+\input{sections/5-Model-Specific_post-hoc}
+
+\input{sections/6-Conclusion}
+
+\newpage
+\addcontentsline{toc}{section}{References}
+\printbibliography
+
+\newpage
+\pagenumbering{Roman}
+\setcounter{page}{5}
+\input{sections/7-Appendix}
+
+\end{document}

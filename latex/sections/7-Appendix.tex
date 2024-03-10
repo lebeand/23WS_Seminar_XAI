@@ -1,0 +1,413 @@
+
+\appendix
+\section{Overview XAI Approaches}\label{sec:7}
+
+\subsection{Inherently interpretable machine learning models}
+
+\subsubsection{Linear Regression}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\linewidth}|p{0.77\linewidth}|}
+    \hline
+    Form of \newline explanation & 
+    Internal model parameters \\
+    
+    \hline
+    Interpretation & 
+    An increase or change of feature  $x_k$  by one unit increases the prediction for $y$ by $\beta_k$  units when all other feature values remain fixed. \\
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item transparent 
+        \item solid statistical history
+        \item extensions: e.g. GLM, GAM (less interpretable)
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item can only represent linear relationships 
+        \item not suitable if features correlations to strong
+        \item interactions must be added manually
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    intrinsic, model-specific, global  \\
+    
+    \hline
+  \end{tabular}
+  \caption{Overview XAI - Linear Regression.}
+  % \label{tab:XAILinReg}
+\end{table}
+
+\subsubsection{Decision Tree}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & 
+    Internal model parameters \\
+    
+    \hline
+    Interpretation & 
+    If feature $x$ is [smaller/bigger] than threshold $c$ AND $\dots$ then the predicted outcome is the mean value of y of the instances in that node. \\
+ 
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item captures interactions between features in the data
+        \item interpretation easy, ends up in distinct groups, good explanations
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item fails to deal with linear relationships
+        \item lack of smoothness
+        \item unstable, few changes in the training dataset can create a completely different tree
+        \item number of terminal nodes increases quickly with depth, which makes trees more difficult to understand
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    intrinsic, model-specific, global  \\
+    
+    \hline
+  \end{tabular}
+  \caption{Overview XAI - Decision Tree.}
+  \label{tab:Tree}
+\end{table}
+
+\subsubsection{Linear Tree}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & 
+    Internal model parameters \\
+    
+    \hline
+    Interpretation & 
+    Combination of Decision Tree and Linear Regression. If feature $x$ is [smaller/bigger] than threshold $c$ AND $\dots$ then the predicted outcome is the prediction of a Linear Regression model where the weights are interpretable.\\
+ 
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item interpretation easy
+        \item get insights into linear and non-linear relationships
+        \item identify subpopulations with different behavior
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item as the number of terminal nodes gets higher,  makes Linear Tree more difficult to understand
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    intrinsic, model-specific, global  \\
+    
+    \hline
+  \end{tabular}
+  \caption[Overview XAI - Linear Tree]{Overview XAI - Linear Tree.\cite{linear_tree}}
+\end{table}
+
+\subsubsection{ProtoPNet - \textit{This} Looks Like \textit{That}}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & Points from dataset distribution.
+    \\
+    
+    \hline
+    Interpretation & Learned prototypical parts are compared to points from training dataset.
+     \\
+ 
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item can achieve comparable accuracy with its analogous non-interpretable counterpart
+        \item provides a level of interpretability that is absent in other interpretable deep models    
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item (minimal) trade-off in accuracy to best-performing deep models
+    \end{itemize} \\
+    
+    \hline
+    Properties & intrinsic, model-specific, local
+      \\
+    
+    \hline
+  \end{tabular}
+  \caption[Overview XAI - ProtoPNet]{Overview XAI - ProtoPNet.\cite{NEURIPS2019_adf7ee2d}}
+  % \label{tab:XAIProtoPNet}
+\end{table}
+
+\subsection{Post-hoc methods - Model-Agnostic - global}
+
+\subsubsection{PFI - Permutation Feature Importance}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & 
+    Feature statistics \\
+    
+    \hline
+    Interpretation & 
+    A feature is important if shuffling its values increases the model error. \\
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item provides a highly compressed, global insight into the model’s behavior
+        \item takes into account all interactions with other features
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item when the permutation is repeated, the results might vary greatly
+        \item can be biased by unrealistic data instances
+        \item adding a correlated feature can decrease the importance of the associated feature by splitting the importance between both features
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    post-hoc, model-agnostic, global  \\
+    
+    \hline
+  \end{tabular}
+  \caption{Overview XAI - Permutation Feature Importance.}
+  % \label{tab:XAIPFI}
+\end{table}
+
+\subsubsection{PDP - Partial Dependence Plot}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & 
+    Features statistics \\
+    
+    \hline
+    Interpretation & 
+    Feature effect method.\\
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item clear interpretation
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item does not show the feature distribution
+        \item it is assumed that the feature(s) for which the partial dependence is computed are not correlated with other features
+        \item heterogeneous effects might be hidden
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    post-hoc, model-agnostic, global  \\
+    
+    \hline
+  \end{tabular}
+  \caption{Overview XAI - Partial Dependence Plot (PDP).}
+  \label{tab:XAIPDP}
+\end{table}
+
+\subsubsection{Global surrogate}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & 
+    Approximation with an inherently interpretable model \\
+    
+    \hline
+    Interpretation & 
+    The original model is replaced with a simpler model for interpretation.\\
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item any interpretable model can be used
+        \item with the R-squared measure, we can easily measure how good our surrogate models are in approximating the black box predictions
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item you conclude the model and not about the data
+        \item what is the best cut-off for R-squared?
+        \item could happen that the interpretable model is very close for one subset of the dataset but widely divergent for another subset
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    post-hoc, model-agnostic, global  \\
+    
+    \hline
+  \end{tabular}
+  \caption{Overview XAI - Global surrogate.}
+  \label{tab:XAIGlobSur}
+\end{table}
+
+\subsection{Post-hoc methods - Model-Agnostic - local}
+
+\subsubsection{Shapley Values}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & 
+    Feature statistics. \\
+    
+    \hline
+    Interpretation & 
+    Given the current set of feature values, the contribution of a feature value to the difference between the actual prediction and the mean prediction is the estimated Shapley value. \\
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item prediction is fairly distributed among the feature values
+        \item has a solid theoretical foundation in game theory
+        \item can be used for global model interpretations
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item requires a lot of computing time
+        \item no sparse explanation, always use all the features
+        \item problem with correlated features, can include unrealistic data instances
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    post-hoc, model-agnostic, local  \\
+    
+    \hline
+  \end{tabular}
+  \caption{Overview XAI - Shapley Values.}
+  % \label{tab:XAIShapVal}
+\end{table}
+
+\subsubsection{ICE - Individual Conditional Expectation}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & 
+    Feature visualization. \\
+    
+    \hline
+    Interpretation & 
+    Shows how the prediction of one instance changes when a feature changes.\\
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item intuitive to understand
+        \item can uncover heterogeneous relationships
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item problem with correlated features, some points in the lines might be invalid data points
+        \item when many ICE curves are plotted, the visual representation may become chaotic
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    post-hoc, model-agnostic, local  \\
+    
+    \hline
+  \end{tabular}
+  \caption{Overview XAI - Individual Conditional Expectation (ICE)}
+  \label{tab:XAIICE}
+\end{table}
+
+\subsubsection{LIME - Local Surrogate.}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & 
+    Feature visualization. \\
+    
+    \hline
+    Interpretation & 
+    Train a local surrogate model to explain individual prediction.\\
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item you can use interpretable models to provide explanations without necessarily using them for prediction purposes
+        \item local surrogate models can use features beyond those used in the original model during training.
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item for each application you have to try different kernel settings and see for yourself if the explanations make sense
+        \item data points are sampled from a Gaussian distribution, ignoring the correlation between features, which can lead to unlikely data points
+        \item by repeating the sampling process, the resulting explanations can vary
+        \item LIME explanations can be manipulated to hide biases\cite{slack2020fooling}
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    post-hoc, model-agnostic, local  \\
+    
+    \hline
+  \end{tabular}
+  \caption{Overview XAI - Individual Local Surrogate (LIME).}
+  \label{tab:XAILIME}
+\end{table}
+
+
+
+
+
+
+
+\subsection{Post-hoc methods - Model-Specific}
+
+
+\subsubsection{Image-Specific Class Saliency (Vanilla gradient)}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|p{0.17\textwidth}|p{0.77\textwidth}|}
+    \hline
+    Form of \newline explanation & 
+    Feature visualization \\
+    
+    \hline
+    Interpretation & 
+    Pixels that strongly influence the prediction of the neural network are identified. \\
+    \hline
+    Advantages &
+    \begin{itemize}[nosep, left=0em]
+        \item easy to immediately recognize the important regions of the image to the model's prediction
+    \end{itemize} \\
+    
+    \hline
+    Disadvantages &
+    \begin{itemize}[nosep, left=0em]
+        \item tells only where the network is looking not why the prediction was made
+        \item can be highly unreliable
+    \end{itemize} \\
+    
+    \hline
+    Properties & 
+    post-hoc, model-specific, local  \\
+    
+    \hline
+  \end{tabular}
+  \caption[Overview XAI - Image-Specific Class Saliency (Vanilla gradient)]{Overview XAI - Image-Specific Class Saliency (Vanilla gradient).}
+\end{table}
